@@ -67,6 +67,7 @@ cat <<EOF > $HOME/.local/share/applications/Quake4.desktop # This is called a he
 Exec=$OUTPUT_DIR/quake4
 Icon=$OUTPUT_DIR/q4icon.png
 Name=Quake 4
+Comment=Linux version of Quake 4
 Path=$OUTPUT_DIR
 Terminal=false
 Type=Application

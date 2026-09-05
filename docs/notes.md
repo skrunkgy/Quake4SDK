@@ -10,13 +10,17 @@ I restructured the files to get rid of some junk, as well as adding some QoL stu
 
 ## Research
 
-The Linux binaries initially look in the `$HOME/.quake4` as its "fs_savepath" (or "fs_basepath"). These variables are where the binary looks for the CD key, the configs, and where they write saves to. However, for tidiness we run the binary with the option to look inside its own directory instead. If the game is still asking for a CD key, check your original copy and look for `.../q4base/quake4key` and copy it into the `q4base` folder inside the Linux copy. If you can't find this file, ~~YOURE A PIRATE~~ run the game once and it should be generated.
+The Linux binaries initially look in the `$HOME/.quake4` as its "fs_savepath" (or "fs_basepath"). These variables are where the binary looks for the CD key, the configs, and where they write saves to. However, for tidiness we run the binary with the option to look inside its own directory instead. If the game is still asking for a CD key, check your original copy and look for `.../q4base/quake4key` and copy it into the `q4base` folder inside the Linux copy. If you can't find this file, ~~you are comitting theft~~ run the game once and it should be generated.
 
 The binary also did not ship with default search paths for libraries, so we also manually pass this. This may be a source of failure, since I set it to look inside the current directory, `/usr/lib` and `/usr/lib32`. I have no idea where libraries are stored on other distros, as I use CachyOS (Arch based).
 
 ## The tarball
 
 Currently, the tarball I made is hosted my own machine. You have every right to be sketchy about this, and I have no way to convince you that this isn't malware. However, I provide a checksum in the script as a layer of protection in the case aliens zap my server or something.
+
+## Other projects
+
+Before jumping through all these hopes, I was initially eyeing a project that aimed to be a modern port of Quake 4 along with its source code entirely open. However, the project relies heavily on AI generated code, and I don't trust code written by either robots or people who rely on robots.
 
 For any issues, please contact me on:
 - Discord: @skrunkgy
