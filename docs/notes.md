@@ -1,0 +1,23 @@
+# Notes
+
+Here are some notes about getting this project to work at all.
+
+## The original Quake 4 Linux binaries
+
+As mentioned, id used to provide these binaries in the form of a "makeself" file on their ftp servers. This ftp server has since been vaporized or something, but mirror sites provided them thankfully.
+
+I restructured the files to get rid of some junk, as well as adding some QoL stuff. This is all packaged into a tarball I store in my home server, where a script can later grab it and do some stuff to create a complete copy.
+
+## Research
+
+The Linux binaries initially look in the `$HOME/.quake4` as its "fs_savepath" (or "fs_basepath"). These variables are where the binary looks for the CD key, the configs, and where they write saves to. However, for tidiness we run the binary with the option to look inside its own directory instead. If the game is still asking for a CD key, check your original copy and look for `.../q4base/quake4key` and copy it into the `q4base` folder inside the Linux copy. If you can't find this file, ~~YOURE A PIRATE~~ run the game once and it should be generated.
+
+The binary also did not ship with default search paths for libraries, so we also manually pass this. This may be a source of failure, since I set it to look inside the current directory, `/usr/lib` and `/usr/lib32`. I have no idea where libraries are stored on other distros, as I use CachyOS (Arch based).
+
+## The tarball
+
+Currently, the tarball I made is hosted my own machine. You have every right to be sketchy about this, and I have no way to convince you that this isn't malware. However, I provide a checksum in the script as a layer of protection in the case aliens zap my server or something.
+
+For any issues, please contact me on:
+- Discord: @skrunkgy
+- Matrix: @skrunkgy:gurtgames.com

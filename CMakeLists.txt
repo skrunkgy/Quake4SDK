@@ -36,6 +36,8 @@ if(UNIX)
 
     # GCC seems to add a "lib" prefix to the output.
     set_target_properties(gamex86 PROPERTIES PREFIX "")
+	set_property(TARGET gamex86 PROPERTY CXX_STANDARD 11)
+
 endif(UNIX)
 
 target_precompile_headers(gamex86 PRIVATE src/idlib/precompiled.h)
