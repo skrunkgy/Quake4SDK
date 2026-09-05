@@ -37,11 +37,11 @@ For Ubuntu, I think it's these libraries:
 - libsdl1.2debian:i386*
 
 
-* these libs come with the binaries, so they don't need to be installed but can be.
+\* these libs come with the binaries, so they don't need to be installed but can be.
 
 
 ## Developing with the SDK
 
 Simply use your favorite IDE to modify the source code. When you want to build it, simply run `build.sh`. This will provide a `gamex86.so` file in the `build` directory. Simply copy this into your Quake 4 game folder.
 
-For more inquiries, refer to [here](notes.md)
+For more inquiries, refer to [here](docs/notes.md)
