@@ -3,6 +3,9 @@
 SDK to develop mods for Quake 4 on Linux.
 
 # Dependencies
+
+For the SDK you must have:
+
 - You must have CMake 3.13 or greater.
 - GCC compiler.
 - A VALID COPY OF QUAKE 4 SOMEWHERE!!!
@@ -20,25 +23,36 @@ Quake 4 did not ship with any Linux binaries, but id software USED TO provide a 
 -s		Specifies where the old Quake 4 lives. Defaults to "~/.local/share/Steam/steamapps/common/Quake 4"
 ```
 
-Make sure you have the following x86 libraries. On Arch, the following packages are:
+Make sure curl is installed, or the script will complain and bail.
 
+### Arch / Arch based
+
+For Arch, make sure you have `[multilib]` section enabled in `/etc/pacman.conf`, and make sure the following packages are installed:
 - lib32-glibc
-- lib32-libxau
-- lib32-libxdmcp
-- lib32-libxcb
 - lib32-libxext
 - lib32-libx11
-- lib32-libz
-- lib32-gcc-libs*
-- lib32-sdl12-compat*
+- lib32-zlib
 
-For Ubuntu, I think it's these libraries:
-- pipewire-alsa:i386
-- libsdl1.2debian:i386*
+### Ubuntu
 
+To enable multilib on Ubuntu, run:
+`$ sudo dpkg --add-architecture i386`
+and then refresh the repositories:
+`$ sudo apt update`
 
-\* these libs come with the binaries, so they don't need to be installed but can be.
+Then, make sure the following packages are installed:
+- gcc-multilib
+- libx11-6:i386
+- zlib1g:i386
+- libxext6:i386
 
+### Extra
+
+The following libraries are technically needed, but are provided by the binaries in the tarball:
+- lib32-gcc-libs
+- lib32-sdl12-compat
+
+It is not required you install them, but you can if you want.
 
 ## Developing with the SDK
 

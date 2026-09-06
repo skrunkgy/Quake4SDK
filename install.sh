@@ -14,6 +14,13 @@ while getopts "s:o:" param; do
 	esac
 done
 
+# Check if curl is installed
+which curl 1>/dev/null 2>/dev/null
+if [ $? -ne 0 ]; then
+	echo "Curl is not installed or can't be found. Please make sure it is installed. Aborting..."
+	exit
+fi
+
 # Try to run ls on our path, redirect stdout and stderr to null
 ls "$QUAKE_DIR" 1>/dev/null 2>/dev/null
 
