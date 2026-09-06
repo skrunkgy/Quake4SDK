@@ -32,7 +32,7 @@ fi
 # I don't know where I should store this file, so I will simply host it for now. Please change if changing hosts
 ARCHIVE_NAME="quake-4-linux.tar.gz"
 ARCHIVE_URL="https://cdn.gurtgames.com/it266/$ARCHIVE_NAME"
-ARCHIVE_CHECKSUM="b35f0eb2d3a8581a63b45f84c0dfda52b04c1e2631e5f0cca3e0ff3fdbdf7cd5"
+ARCHIVE_CHECKSUM="547525e90dc1b4509a1b6a26d3a77c89f6368a3935a82669f47a558792d3f7c8"
 
 # Curl the tarball, check sha256, abort if fail
 curl $ARCHIVE_URL -o $ARCHIVE_NAME

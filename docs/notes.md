@@ -18,6 +18,12 @@ The binary also did not ship with default search paths for libraries, so we also
 
 Currently, the tarball I made is hosted my own machine. You have every right to be sketchy about this, and I have no way to convince you that this isn't malware. However, I provide a checksum in the script as a layer of protection in the case aliens zap my server or something.
 
+## Libraries
+
+This is probably where most of the troubleshooting will come from. I have no idea what libraries are needed. The tarball comes with some dynamic libs that gets searched for.
+
+For example, the `libSDL-1.2.so.0` library is needed for the `quake4.x86` binary and was pulled from my system, which is pretty up to date (since 2024). However, that comes from the `lib32-sdl12-compat` package, which needs SDL2, which I will not supply (sorry). For `quake4smp.x86`, it links against their own version of the library called `libSDL-1.2.id.so.0`, which id provides. For now, the project will use the latter binary.
+
 ## Other projects
 
 Before jumping through all these hopes, I was initially eyeing a project that aimed to be a modern port of Quake 4 along with its source code entirely open. However, the project relies heavily on AI generated code, and I don't trust code written by either robots or people who rely on robots.

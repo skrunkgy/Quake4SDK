@@ -34,6 +34,7 @@ and then make sure the following packages are installed:
 - lib32-libxext
 - lib32-libx11
 - lib32-zlib
+- lib32-mesa
 
 ### Ubuntu
 
@@ -47,14 +48,7 @@ Then, make sure the following packages are installed:
 - libx11-6:i386
 - zlib1g:i386
 - libxext6:i386
-
-### Extra
-
-The following libraries are technically needed, but are provided by the binaries in the tarball:
-- lib32-gcc-libs
-- lib32-sdl12-compat
-
-It is not required you install them, but you can if you want.
+- libgl1:i386
 
 ## Developing with the SDK
 
