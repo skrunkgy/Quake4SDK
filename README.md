@@ -27,7 +27,9 @@ Make sure curl is installed, or the script will complain and bail.
 
 ### Arch / Arch based
 
-For Arch, make sure you have `[multilib]` section enabled in `/etc/pacman.conf`, and make sure the following packages are installed:
+For Arch, make sure you have `[multilib]` section enabled in `/etc/pacman.conf`. Then, run:
+`$ sudo pacman -Sy`
+and then make sure the following packages are installed:
 - lib32-glibc
 - lib32-libxext
 - lib32-libx11
