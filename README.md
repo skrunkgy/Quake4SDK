@@ -12,6 +12,10 @@ For the SDK you must have:
 
 # Setup
 
+> [!WARNING]
+> The package in my server is OUTDATED!!! THE SCRIPT WILL FAIL UNTIL I GET HOME AND UPDATE IT!!!
+
+
 ## Quake 4 on Linux
 
 Quake 4 did not ship with any Linux binaries, but id software USED TO provide a binary to patch it. I have created a script to automate most of the setup.
@@ -35,6 +39,7 @@ and then make sure the following packages are installed:
 - lib32-libx11
 - lib32-zlib
 - lib32-mesa
+- lib32-sdl2
 
 ### Ubuntu
 
@@ -49,6 +54,7 @@ Then, make sure the following packages are installed:
 - zlib1g:i386
 - libxext6:i386
 - libgl1:i386
+- libsdl2-2.0-0
 
 ## Developing with the SDK
 

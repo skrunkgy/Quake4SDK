@@ -32,9 +32,10 @@ fi
 # I don't know where I should store this file, so I will simply host it for now. Please change if changing hosts
 ARCHIVE_NAME="quake-4-linux.tar.gz"
 ARCHIVE_URL="https://cdn.gurtgames.com/it266/$ARCHIVE_NAME"
-ARCHIVE_CHECKSUM="547525e90dc1b4509a1b6a26d3a77c89f6368a3935a82669f47a558792d3f7c8"
+ARCHIVE_CHECKSUM="f8df5ba4ac2bd3307830af14f2e33e091662075fb65199d28aad8603a439fcfb"
 
 # Curl the tarball, check sha256, abort if fail
+echo "Getting archive from $ARCHIVE_URL..."
 curl $ARCHIVE_URL -o $ARCHIVE_NAME
 echo "$ARCHIVE_CHECKSUM $ARCHIVE_NAME" | sha256sum -c -
 if [ $? -ne 0 ]; then
@@ -44,26 +45,26 @@ fi
 
 # Create directories, we discard fails if already made
 echo "Creating new directory $OUTPUT_DIR..."
-mkdir -p $OUTPUT_DIR 2>/dev/null
+mkdir -p "$OUTPUT_DIR" 2>/dev/null
 
 # Move some original files. Some of these will be overridden
 echo "Moving files from $QUAKE_DIR..."
-mkdir $OUTPUT_DIR/q4base 2>/dev/null
-mkdir $OUTPUT_DIR/q4mp 2>/dev/null
-cp "$QUAKE_DIR"/q4base/*.pk4 $OUTPUT_DIR/q4base/ # We don't need -r flag since all files are first level
-cp "$QUAKE_DIR"/q4mp/*.pk4 $OUTPUT_DIR/q4mp/
+mkdir "$OUTPUT_DIR"/q4base 2>/dev/null
+mkdir "$OUTPUT_DIR"/q4mp 2>/dev/null
+cp "$QUAKE_DIR"/q4base/*.pk4 "$OUTPUT_DIR"/q4base/ # We don't need -r flag since all files are first level
+cp "$QUAKE_DIR"/q4mp/*.pk4 "$OUTPUT_DIR"/q4mp/
 
 # Check if the key exists and copies it. If not, we skip and simply warn the user on how to get the key file
 ls "$QUAKE_DIR"/q4base/quake4key 1>/dev/null 2>/dev/null
 if [ $? -ne 0 ]; then
 	echo "Key not found... Please run the game somewhere and copy the key to $OUTPUT_DIR/q4base/"
 else
-	cp -T "$QUAKE_DIR"/q4base/quake4key $OUTPUT_DIR/q4base/quake4key
+	cp -T "$QUAKE_DIR"/q4base/quake4key "$OUTPUT_DIR"/q4base/quake4key
 fi
 
-echo "Extracting tarball..."
+echo "Extracting archive..."
 # Extract that archive file we got earlier, then remove it
-tar -xzf $ARCHIVE_NAME -C $OUTPUT_DIR
+tar -xzf $ARCHIVE_NAME -C "$OUTPUT_DIR"
 rm $ARCHIVE_NAME
 
 echo "Creating desktop file..."
@@ -71,7 +72,7 @@ echo "Creating desktop file..."
 cat <<EOF > $HOME/.local/share/applications/Quake4.desktop # This is called a heredoc, I think it's neat
 [Desktop Entry]
 
-Exec=$OUTPUT_DIR/quake4
+Exec="$OUTPUT_DIR"/quake4
 Icon=$OUTPUT_DIR/q4icon.png
 Name=Quake 4
 Comment=Linux version of Quake 4
@@ -82,7 +83,7 @@ EOF
 
 echo "Making binaries executable..."
 # Make these executable
-chmod +x $OUTPUT_DIR/bin/quake4.x86
-chmod +x $OUTPUT_DIR/quake4
+chmod +x "$OUTPUT_DIR"/bin/quake4.x86
+chmod +x "$OUTPUT_DIR"/quake4
 
 echo "Done!"
