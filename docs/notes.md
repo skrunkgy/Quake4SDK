@@ -22,7 +22,11 @@ Currently, the tarball I made is hosted my own machine. You have every right to 
 
 This is probably where most of the troubleshooting will come from. I have no idea what libraries are needed. The tarball comes with some dynamic libs that gets searched for.
 
-For example, the `libSDL-1.2.so.0` library is needed for the `quake4.x86` binary and was pulled from my system, which is pretty up to date (since 2024). However, that comes from the `lib32-sdl12-compat` package, which needs SDL2, which I will not supply (sorry). For `quake4smp.x86`, it links against their own version of the library called `libSDL-1.2.id.so.0`, which id provides. For now, the project will use the latter binary.
+For example, the `libSDL-1.2.so.0` library is needed for the `quake4.x86` binary and was pulled from my system, which is pretty up to date (since 2024). However, that comes from the `lib32-sdl12-compat` package, which needs SDL2, which I will not supply (sorry). For `quake4smp.x86`, it links against their own version of the library called `libSDL-1.2.id.so.0`, which id provides. For now, we will use the regular `quake4.x86` binary. I provide my own copy of the library, but it needs an SDL2 backend, which is noted in the dependencies.
+
+## Other notes
+
+I think the game runs a bit more choppy, and I have no idea why. I think it is the SDL backend to blame, since its a compatability layer basically. Sigh.
 
 ## Other projects
 

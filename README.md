@@ -12,10 +12,6 @@ For the SDK you must have:
 
 # Setup
 
-> [!WARNING]
-> The package in my server is OUTDATED!!! THE SCRIPT WILL FAIL UNTIL I GET HOME AND UPDATE IT!!!
-
-
 ## Quake 4 on Linux
 
 Quake 4 did not ship with any Linux binaries, but id software USED TO provide a binary to patch it. I have created a script to automate most of the setup.
@@ -32,7 +28,7 @@ Make sure curl is installed, or the script will complain and bail.
 ### Arch / Arch based
 
 For Arch, make sure you have `[multilib]` section enabled in `/etc/pacman.conf`. Then, run:
-`$ sudo pacman -Sy`
+```$ sudo pacman -Sy```
 and then make sure the following packages are installed:
 - lib32-glibc
 - lib32-libxext
@@ -44,9 +40,9 @@ and then make sure the following packages are installed:
 ### Ubuntu
 
 To enable multilib on Ubuntu, run:
-`$ sudo dpkg --add-architecture i386`
+```$ sudo dpkg --add-architecture i386```
 and then refresh the repositories:
-`$ sudo apt update`
+```$ sudo apt update```
 
 Then, make sure the following packages are installed:
 - gcc-multilib
